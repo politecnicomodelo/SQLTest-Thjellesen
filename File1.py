@@ -1,16 +1,19 @@
 import pymysql
+from .Persona import Person
 
-db =pymysql.connect (host = "localhost", user = 'root', passwd = 'alumno', db = 'mydb', autocommit = True)
+db =pymysql.connect (host = "localhost", user = 'root', passwd = '1', db = 'test', autocommit = True)
 
 c = db.cursor(pymysql.cursors.DictCursor)
 
-def Insert(ID,Name,Surname):
-    c.execute("insert into Persona values('"+ID+"', '"+Name+"', '"+Surname+"')")
+Persona1 = Person()
 
-def Delete(ID):
+def Insert(Persona1):
+    c.execute("insert into Persona values('"+Persona1.ID+"', '"+Persona1.Name+"', '"+Persona1.Surname+"')")
+
+def Delete(Persona1):
     c.execute("delete from Persona where DNI = '"+ID+"';")
 
-def Update(ID,Name,Surname):
+def Update(Persona1):
     c.execute("update Persona set Nombre = '"+Name+"', Apellido= '"+Surname+"' where DNI = '"+ID+"';")
 
 while True:
@@ -20,10 +23,10 @@ while True:
                   "4 - Exit\n")
 
     if Input == "1":
-        ID = input("ID ")
-        Name = input("Name ")
-        Surname = input("Surname ")
-        Insert(ID,Name,Surname)
+        Persona1.setID(input("ID "))
+        Persona1.setName(input("Name "))
+        Persona1.setSurname(input("Surname "))
+        Insert(Persona1.ID,Persona1.Name,Persona1.Surname)
 
     elif Input == "2":
         ID = input("ID ")
