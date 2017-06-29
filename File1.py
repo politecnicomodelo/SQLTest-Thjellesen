@@ -1,7 +1,7 @@
 import pymysql
-from .Persona import Person
+from Persona import Person
 
-db =pymysql.connect (host = "localhost", user = 'root', passwd = '1', db = 'test', autocommit = True)
+db =pymysql.connect (host = "localhost", user = 'root', passwd = '', db = 'test', autocommit = True)
 
 c = db.cursor(pymysql.cursors.DictCursor)
 
@@ -26,7 +26,7 @@ while True:
         Persona1.setID(input("ID "))
         Persona1.setName(input("Name "))
         Persona1.setSurname(input("Surname "))
-        Insert(Persona1.ID,Persona1.Name,Persona1.Surname)
+        Insert(Persona1)
 
     elif Input == "2":
         ID = input("ID ")
