@@ -1,10 +1,10 @@
 class Person (object):
-    ID = ''
-    Name = ''
-    Surname = ''
+    ID = None
+    Name = None
+    Surname = None
 
     def setID(self, id):
-        self.ID = int(id)
+        self.ID = str(id)
 
     def setName(self, name):
         self.Name = str(name)

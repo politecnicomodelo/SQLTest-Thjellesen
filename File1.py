@@ -1,42 +1,35 @@
 import pymysql
 from Persona import Person
-
-db =pymysql.connect (host = "localhost", user = 'root', passwd = '', db = 'test', autocommit = True)
-
-c = db.cursor(pymysql.cursors.DictCursor)
+from Base import List
 
 Persona1 = Person()
-
-def Insert(Persona1):
-    c.execute("insert into Persona values('"+Persona1.ID+"', '"+Persona1.Name+"', '"+Persona1.Surname+"')")
-
-def Delete(Persona1):
-    c.execute("delete from Persona where DNI = '"+ID+"';")
-
-def Update(Persona1):
-    c.execute("update Persona set Nombre = '"+Name+"', Apellido= '"+Surname+"' where DNI = '"+ID+"';")
+Lista1 = List()
 
 while True:
     Input = input("1 - Add Person\n"
                   "2 - Delete Person\n"
                   "3 - Update Person\n"
-                  "4 - Exit\n")
+                  "4 - Print List\n"
+                  "5 - Exit\n")
 
     if Input == "1":
         Persona1.setID(input("ID "))
         Persona1.setName(input("Name "))
         Persona1.setSurname(input("Surname "))
-        Insert(Persona1)
+        Lista1.Insert(Persona1)
 
     elif Input == "2":
-        ID = input("ID ")
-        Delete(ID)
+        Persona1.setID (input("ID "))
+        Lista1.Delete(Persona1)
 
     elif Input == "3":
-        ID = input("ID ")
-        Name = input("Name ")
-        Surname = input("Surname ")
-        Update(ID,Name,Surname)
+        Persona1.setID (input("ID "))
+        Persona1.setName (input("Name "))
+        Persona1.setSurname (input("Surname "))
+        Lista1.Update(Persona1)
 
     elif Input == "4":
+        Lista1.Print()
+
+    elif Input == "5":
         exit()
