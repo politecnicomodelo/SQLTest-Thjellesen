@@ -24,5 +24,4 @@ class List (object):
     def Update(self, person):
         db = pymysql.connect(host="localhost", user='root', passwd='', db='test', autocommit=True)
         c = db.cursor(pymysql.cursors.DictCursor)
-        c.execute(
-            "update Persona set Nombre = '" + person.Name + "', Apellido= '" + person.Surname + "' where DNI = '" + person.ID + "';")
+        c.execute("update Persona set Nombre = '" + person.Name + "', Apellido= '" + person.Surname + "' where DNI = '" + person.ID + "';")
