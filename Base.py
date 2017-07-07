@@ -25,6 +25,12 @@ class List (object):
                 Persona2.setSurname(ListaAux[2])
                 self.Lista.append(Persona2)
 
+    def Test(self):
+        self.c.execute("select Nombre from Persona where DNI = 2")
+        print(self.c.fetchall())
+        self.c.execute("select Apellido from Persona where DNI = 2")
+        print(self.c.fetchall())
+
     def Insert(self, person):
         self.Lista.append(person)
         self.c.execute("insert into Persona values('"+person.ID+"', '"+person.Name+"', '"+person.Surname+"')")

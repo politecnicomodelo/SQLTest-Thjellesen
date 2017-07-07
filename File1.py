@@ -18,7 +18,8 @@ while True:
                   "3 - Update Person\n"
                   "4 - Print List\n"
                   "5 - Write in Archive\n"
-                  "6 - Exit\n")
+                  "6 - Test\n"
+                  "7 - Exit\n")
 
     if Input == "1":
         Persona1.setID(input("ID "))
@@ -42,4 +43,7 @@ while True:
         Lista1.Write()
 
     elif Input == "6":
+        Lista1.Test()
+
+    elif (Input == "7"):
         exit()
