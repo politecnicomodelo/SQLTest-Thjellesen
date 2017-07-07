@@ -11,3 +11,4 @@ class Person (object):
 
     def setSurname(self, surname):
         self.Surname = str(surname)
+
